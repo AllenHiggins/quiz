@@ -8,7 +8,7 @@
         <img src="assets/img/quiz-orange.jpg" style="width:434px;height:160px;" class="offset=s3">
       </div>
       <div class="card-content">
-        <form #registerForm="ngForm">
+        <form #registerForm="ngForm" (ngSubmit)="onSubmi(Name.vlaue,Email.value)">
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
@@ -19,13 +19,13 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">mail_outline</i>
-              <input type="text" name="email" #Email ngModel required>
+              <input type="text" name="email" #Email ngModel required [pattern]="emailPattern">
               <label>email</label> 
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <button class="btn-large btn-submit" type="submit">Start</button>
+              <button class="btn-large btn-submit" type="submit" [disabled]="!registerForm.valid">Start</button>
             </div>
           </div>
         </form>
