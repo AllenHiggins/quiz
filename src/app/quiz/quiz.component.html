@@ -1,4 +1,18 @@
 <app-navbar></app-navbar>
-<p>
-  quiz works!
-</p>
+<div class="row">
+  <p>Time: {{quizService.displayTimeElapsed()}}</p>
+  <div class="progress">
+      <div class="determinate" [style.width.%]="(quizService.qnProgress+1)*10"></div>
+  </div>
+</div>
+<div class="row" *ngIf="quizService.qns">
+  <div class="col s8 offset-s2">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">{{ quizService.qnProgress+1}}</span>
+        <p>Question...</p>
+      </div>
+      <div class="card-action"></div>
+    </div>
+  </div>
+</div>
